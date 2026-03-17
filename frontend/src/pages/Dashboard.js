@@ -112,7 +112,7 @@ function Dashboard() {
       </div>
 
       {/* SIDEBAR */}
-      <div className={`w-[20rem] p-8 flex flex-col relative z-40 selection:bg-transparent shrink-0 bg-[#070B0E] lg:bg-transparent lg:translate-x-0 absolute lg:relative h-full transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0 border-r border-[#1F2932]' : '-translate-x-full'}`}>
+      <div className={`w-[20rem] p-8 flex flex-col z-40 selection:bg-transparent shrink-0 bg-[#070B0E] lg:bg-transparent lg:translate-x-0 absolute top-0 left-0 lg:relative h-full transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0 border-r border-[#1F2932]' : '-translate-x-full'}`}>
 
         {/* Top Links */}
         <div className="flex space-x-6 mb-12 text-[#688a78] text-[13px] tracking-wide">
