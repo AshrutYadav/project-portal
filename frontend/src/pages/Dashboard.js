@@ -42,6 +42,7 @@ function Dashboard() {
   const [domains, setDomains] = useState([]);
   const [selectedType, setSelectedType] = useState("Ongoing");
   const [isGeneralChatOpen, setIsGeneralChatOpen] = useState(false);
+  const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
 
