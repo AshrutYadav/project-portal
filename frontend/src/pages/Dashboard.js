@@ -90,8 +90,8 @@ function Dashboard() {
 
       {/* Mobile Menu Toggle */}
       <div className="lg:hidden absolute top-4 left-4 z-50">
-        <button 
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)} 
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className="p-2 bg-[#11161B] border border-[#1F2932] rounded-md text-[#69D999] shadow-lg"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -390,7 +390,7 @@ function Dashboard() {
 
       {/* Mobile Overlay for Sidebar */}
       {isSidebarOpen && (
-        <div 
+        <div
           className="lg:hidden fixed inset-0 bg-black/50 z-30"
           onClick={() => setIsSidebarOpen(false)}
         />
