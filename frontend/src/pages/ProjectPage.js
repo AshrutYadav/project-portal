@@ -355,11 +355,11 @@ function ProjectPage() {
         </div>
 
         {/* MAIN CONTENT AREA */}
-        <div className="flex flex-col lg:flex-row flex-1 min-h-0 gap-4 lg:gap-6 overflow-hidden relative z-10 w-full transition-all duration-500 ease-in-out">
+        <div className={`flex flex-col lg:flex-row flex-1 min-h-0 gap-4 lg:gap-6 overflow-hidden relative z-10 w-full transition-all duration-500 ease-in-out`}>
 
           {/* LEFT SIDE (MEMBERS & TASKS UNIFIED TABLE) */}
           <div className={`bg-[#11161B] rounded-xl border border-[#1F2932] shadow-2xl flex flex-col min-h-0 overflow-hidden transition-all duration-500 ease-in-out
-              ${isChatOpen ? "h-1/2 lg:h-auto lg:w-[55%]" : "h-full w-full"}`}
+              ${isChatOpen ? "h-[50%] lg:h-auto lg:w-[55%]" : "h-full w-full"}`}
           >
             {/* TABLE HEADER (Unified) */}
             <div className="md:flex hidden w-full border-b border-[#212A31] text-[#629778] tracking-[0.2em] font-bold text-[13px] bg-[#0A0F13] shrink-0">
@@ -678,8 +678,8 @@ function ProjectPage() {
 
           {/* RIGHT SIDE (CHAT) */}
           <div
-            className={`bg-[#11161B] rounded-2xl p-3 px-4 shadow-2xl border border-[#1F2932] flex flex-col relative transition-all duration-500 ease-in-out
-                ${isChatOpen ? "h-1/2 lg:h-auto lg:w-[45%] opacity-100 lg:translate-x-0" : "h-0 lg:h-auto lg:w-0 opacity-0 lg:translate-x-full overflow-hidden p-0 border-none lg:ml-[-24px]"}
+            className={`bg-[#11161B] rounded-2xl p-3 px-4 shadow-2xl border border-[#1F2932] flex flex-col relative transition-all duration-500 ease-in-out overflow-hidden
+                ${isChatOpen ? "h-[50%] lg:h-auto lg:flex-1 opacity-100 lg:translate-x-0" : "h-0 lg:h-auto lg:w-0 opacity-0 lg:translate-x-full overflow-hidden p-0 border-none lg:ml-[-24px] mt-0"}
               `}
           >
             {isChatOpen && (

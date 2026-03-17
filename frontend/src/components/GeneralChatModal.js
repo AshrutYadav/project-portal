@@ -103,7 +103,7 @@ function GeneralChatModal({ onClose }) {
         <div className="fixed inset-0 bg-[#00000099] backdrop-blur-sm z-50 flex items-center justify-center animate-fade-in p-4 xl:p-0">
             <div
                 ref={modalRef}
-                className="bg-[#0A0F13] w-[75vw] max-w-none h-[80vh] flex flex-col rounded-2xl border border-[#1F2932] shadow-[0_0_50px_rgba(105,217,153,0.15)] relative overflow-hidden animate-slide-up"
+                className="bg-[#0A0F13] w-[95vw] md:w-[75vw] max-w-none h-[80vh] flex flex-col rounded-2xl border border-[#1F2932] shadow-[0_0_50px_rgba(105,217,153,0.15)] relative overflow-hidden animate-slide-up"
             >
 
                 {/* Header */}
@@ -204,9 +204,9 @@ function GeneralChatModal({ onClose }) {
                             <button
                                 type="submit"
                                 disabled={!message.trim()}
-                                className="flex justify-center items-center px-6 h-[46px] rounded bg-[#101D17] border border-[#193A27] text-[#69D999] hover:bg-[#152B1E] transition-all duration-300 shadow-[0_0_10px_rgba(25,58,39,0.2)] hover:shadow-[0_0_15px_rgba(105,217,153,0.4)] disabled:opacity-50 disabled:cursor-not-allowed group shrink-0"
+                                className="flex justify-center items-center px-4 md:px-6 h-[46px] rounded bg-[#101D17] border border-[#193A27] text-[#69D999] hover:bg-[#152B1E] transition-all duration-300 shadow-[0_0_10px_rgba(25,58,39,0.2)] hover:shadow-[0_0_15px_rgba(105,217,153,0.4)] disabled:opacity-50 disabled:cursor-not-allowed group shrink-0"
                             >
-                                <span className="text-[12px] font-bold tracking-widest mr-2 hidden sm:block">TRANSMIT</span>
+                                <span className="text-[12px] font-bold tracking-widest md:mr-2 hidden md:block">TRANSMIT</span>
                                 <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                                     <SendIcon />
                                 </span>

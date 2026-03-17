@@ -106,7 +106,7 @@ function AddProjectPage() {
     };
 
     return (
-        <div className="h-screen w-screen bg-[#070B0E] font-mono text-gray-300 p-8 selection:bg-[#5EC285] selection:text-white flex flex-col relative overflow-hidden">
+        <div className="h-screen w-screen bg-[#070B0E] font-mono text-gray-300 p-4 md:p-8 selection:bg-[#5EC285] selection:text-white flex flex-col relative overflow-hidden">
 
             {/* Background Graphic */}
             <div className="absolute top-[-10%] left-[-5%] w-[800px] h-[800px] opacity-[0.05] pointer-events-none select-none z-0">
@@ -140,7 +140,7 @@ function AddProjectPage() {
                 </div>
 
                 {/* FORM CONTAINER */}
-                <div className="flex-1 bg-[#11161B] rounded-2xl p-8 shadow-2xl border border-[#1F2932] overflow-y-auto custom-scrollbar relative">
+                <div className="flex-1 bg-[#11161B] rounded-2xl p-5 md:p-8 shadow-2xl border border-[#1F2932] overflow-y-auto custom-scrollbar relative">
                     <form onSubmit={handleSubmit} className="space-y-6">
 
                         {error && (
@@ -275,31 +275,42 @@ function AddProjectPage() {
 
                             <div className="space-y-3">
                                 {formData.members.map((member, index) => (
-                                    <div key={index} className="flex items-center space-x-3 bg-[#0A0F13] p-2 rounded border border-[#1A2228] focus-within:border-[#304137] transition-colors">
-                                        <span className="text-[#3A4A41] text-[10px] w-6 text-center font-bold">0{index + 1}</span>
+                                    <div key={index} className="flex flex-col sm:flex-row sm:items-center gap-3 bg-[#0A0F13] p-3 rounded border border-[#1A2228] focus-within:border-[#304137] transition-colors">
+                                        <div className="flex items-center justify-between sm:justify-start w-full sm:w-auto">
+                                          <span className="text-[#3A4A41] text-[10px] w-6 font-bold shrink-0">0{index + 1}</span>
+                                          <button
+                                              type="button"
+                                              onClick={() => removeMember(index)}
+                                              className="p-1.5 text-gray-500 hover:text-[#D96969] transition-colors shrink-0 sm:hidden"
+                                              title="Remove Member"
+                                          >
+                                              <TrashIcon />
+                                          </button>
+                                        </div>
 
-                                        <div className="flex flex-1 space-x-2">
+                                        <div className="flex flex-col sm:flex-row flex-1 gap-2 w-full">
                                             <input
                                                 type="text"
                                                 placeholder="OPERATIVE_ID"
                                                 value={member.collegeId || ""}
                                                 onChange={(e) => handleMemberChange(index, "collegeId", e.target.value.toUpperCase())}
-                                                className="w-1/3 bg-transparent border-b border-[#212A31] focus:border-[#69D999] outline-none text-[13px] text-[#69D999] placeholder-[#2A3F33] uppercase"
+                                                className="w-full sm:w-1/3 bg-transparent border-b border-[#212A31] focus:border-[#69D999] outline-none text-[13px] text-[#69D999] placeholder-[#2A3F33] uppercase pb-1"
                                             />
                                             <input
                                                 type="text"
                                                 placeholder="OPERATIVE_NAME"
                                                 value={member.name || ""}
                                                 onChange={(e) => handleMemberChange(index, "name", e.target.value)}
-                                                className="w-2/3 bg-transparent border-b border-[#212A31] focus:border-[#69D999] outline-none text-[13px] text-gray-300 placeholder-[#2A3F33]"
+                                                className="w-full sm:w-2/3 bg-transparent border-b border-[#212A31] focus:border-[#69D999] outline-none text-[13px] text-gray-300 placeholder-[#2A3F33] pb-1"
                                             />
                                         </div>
 
-                                        <select
-                                            value={member.role}
-                                            onChange={(e) => handleMemberChange(index, "role", e.target.value)}
-                                            className="bg-[#11161B] border border-[#212A31] text-gray-400 text-[11px] p-1.5 rounded outline-none w-28 shrink-0 tracking-widest uppercase cursor-pointer"
-                                        >
+                                        <div className="flex items-center justify-between w-full sm:w-auto mt-2 sm:mt-0">
+                                            <select
+                                                value={member.role}
+                                                onChange={(e) => handleMemberChange(index, "role", e.target.value)}
+                                                className="bg-[#11161B] border border-[#212A31] text-gray-400 text-[11px] p-1.5 rounded outline-none w-full sm:w-28 shrink-0 tracking-widest uppercase cursor-pointer"
+                                            >
                                             <option value="Lead">Lead</option>
                                             <option value="Member">Member</option>
                                         </select>
@@ -307,11 +318,12 @@ function AddProjectPage() {
                                         <button
                                             type="button"
                                             onClick={() => removeMember(index)}
-                                            className="p-1.5 text-gray-500 hover:text-[#D96969] transition-colors shrink-0"
+                                            className="p-1.5 text-gray-500 hover:text-[#D96969] transition-colors shrink-0 hidden sm:block"
                                             title="Remove Member"
                                         >
                                             <TrashIcon />
                                         </button>
+                                        </div>
                                     </div>
                                 ))}
                             </div>

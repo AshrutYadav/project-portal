@@ -40,8 +40,8 @@ function DomainPage() {
   return (
     <div className="flex min-h-screen bg-[#070B0E] text-gray-300 font-mono selection:bg-[#5EC285] selection:text-white">
       {/* MAIN PANEL */}
-      <div className="flex-1 p-8">
-        <div className="h-full bg-[#11161B] rounded-2xl p-10 shadow-2xl border border-[#1F2932] relative overflow-hidden flex flex-col">
+      <div className="flex-1 p-4 md:p-8 w-full">
+        <div className="h-full bg-[#11161B] rounded-2xl p-6 md:p-10 shadow-2xl border border-[#1F2932] relative overflow-hidden flex flex-col">
 
           {/* Top header & Back button */}
           <div className="flex justify-between items-start mb-10 relative z-10 text-[13px] tracking-widest">
@@ -58,8 +58,8 @@ function DomainPage() {
             </div>
           </div>
 
-          <div className="flex items-center space-x-5 mb-8 relative z-10 shrink-0">
-            <div className="w-12 h-12 rounded-xl bg-[#101D17] border border-[#193A27] flex items-center justify-center text-[#69D999] shadow-[0_0_15px_rgba(25,58,39,0.5)]">
+          <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-5 mb-8 relative z-10 shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-[#101D17] border border-[#193A27] flex items-center justify-center text-[#69D999] shadow-[0_0_15px_rgba(25,58,39,0.5)] shrink-0">
               <StarIcon />
             </div>
             <div>
@@ -74,7 +74,7 @@ function DomainPage() {
 
           <div className="relative z-10 flex-1 overflow-y-auto custom-scrollbar pr-2 min-h-0">
             {/* TABLE HEADER */}
-            <div className="grid grid-cols-4 text-[#629778] text-[13px] border-b border-[#212A31] pb-4 mb-4 tracking-widest whitespace-nowrap">
+            <div className="hidden md:grid grid-cols-4 text-[#629778] text-[13px] border-b border-[#212A31] pb-4 mb-4 tracking-widest whitespace-nowrap">
               <div className="pl-4">| &lt;PROJECT_NAME&gt;</div>
               <div className="pl-4">| &lt;START_DATE&gt;</div>
               <div className="pl-4">| &lt;DEADLINE&gt;</div>
@@ -92,7 +92,7 @@ function DomainPage() {
                   <div
                     key={project._id}
                     onClick={() => navigate(`/project/${project._id}`)}
-                    className="grid grid-cols-4 items-center py-3.5 text-[14px] text-[#8BA596] hover:bg-[#1A2228] transition-colors cursor-pointer rounded-sm border border-transparent hover:border-[#212A31] group"
+                    className="grid grid-cols-1 md:grid-cols-4 items-center py-4 md:py-3.5 gap-y-3 md:gap-y-0 text-[14px] text-[#8BA596] hover:bg-[#1A2228] transition-colors cursor-pointer rounded-sm border-b md:border border-[#1A2228] md:border-transparent hover:border-[#212A31] group"
                   >
                     <div className="flex items-center space-x-3 pl-2 truncate pr-4">
                       <span className="text-[#69D999] font-bold w-3 shrink-0">
@@ -101,17 +101,17 @@ function DomainPage() {
                       <span className="tracking-wide text-gray-200 truncate">[ {project.title} ]</span>
                     </div>
 
-                    <div className="tracking-widest pl-4">
-                      | <span className="mx-2">[ {formatDate(project.startDate)} ] ]</span>
+                    <div className="tracking-widest pl-2 md:pl-4">
+                      <span className="hidden md:inline">|</span> <span className="mx-2 md:ml-2">START: [ {formatDate(project.startDate)} ] ]</span>
                     </div>
 
-                    <div className="tracking-widest pl-4">
-                      | <span className="mx-2">[ {formatDate(project.deadline)} ] ]</span>
+                    <div className="tracking-widest pl-2 md:pl-4">
+                      <span className="hidden md:inline">|</span> <span className="mx-2 md:ml-2">DEADLINE: [ {formatDate(project.deadline)} ] ]</span>
                     </div>
 
-                    <div className="flex items-center justify-between pl-4 pr-6">
+                    <div className="flex items-center justify-between pl-2 md:pl-4 pr-6">
                       <div className="flex items-center space-x-3 tracking-widest min-w-0">
-                        <span className="shrink-0">|</span>
+                        <span className="shrink-0 hidden md:inline">|</span>
                         <div className="flex items-center justify-center w-5 h-5 rounded-full border border-[#69D999] text-[#69D999] text-[10px] uppercase font-bold bg-[#69D999]/10 shrink-0">
                           {initial}
                         </div>
