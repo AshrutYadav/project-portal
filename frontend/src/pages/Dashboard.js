@@ -44,8 +44,7 @@ function Dashboard() {
   const [isGeneralChatOpen, setIsGeneralChatOpen] = useState(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
 
-  const userString = localStorage.getItem("user");
-  const currentUser = userString ? JSON.parse(userString) : {};
+
 
   const navigate = useNavigate();
 
