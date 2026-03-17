@@ -46,7 +46,6 @@ function Dashboard() {
 
   const userString = localStorage.getItem("user");
   const currentUser = userString ? JSON.parse(userString) : {};
-  const isAdmin = currentUser.isAdmin;
 
   const navigate = useNavigate();
 
@@ -69,10 +68,7 @@ function Dashboard() {
     return false;
   });
 
-  const formatDate = (date) => {
-    if (!date) return "N/A";
-    return new Date(date).toLocaleDateString("en-GB");
-  };
+
 
   const updateProjectDate = async (projectId, field, value) => {
     try {

@@ -191,10 +191,7 @@ function ProjectPage() {
   if (!project)
     return <p className="p-10 text-[#5C8A70] tracking-widest font-mono text-center min-h-screen bg-[#070B0E] flex items-center justify-center">[ Loading Project Data ]...</p>;
 
-  const formatDate = (date) => {
-    if (!date) return "N/A";
-    return new Date(date).toLocaleDateString("en-GB");
-  };
+
 
   return (
     <div className="h-screen w-screen bg-[#070B0E] font-mono text-gray-300 p-8 selection:bg-[#5EC285] selection:text-white flex flex-col relative overflow-hidden">
@@ -267,7 +264,7 @@ function ProjectPage() {
               </h1>
 
               <div className="flex items-center mt-1">
-                <span className="text-[#5C8A70] text-[12px] mr-1 truncate w-min">// DESC:</span>
+                <span className="text-[#5C8A70] text-[12px] mr-1 truncate w-min">{/* DESC: */}</span>
                 <input
                   type="text"
                   value={editedDescription}

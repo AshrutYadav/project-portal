@@ -67,7 +67,7 @@ function DomainPage() {
                 [ {domain ? domain.name.toUpperCase() : "LOADING..."} ]
               </h2>
               {domain?.description && (
-                <p className="text-[#5C8A70] text-[13px] mt-1 tracking-wide">// {domain.description}</p>
+                <p className="text-[#5C8A70] text-[13px] mt-1 tracking-wide">{/* {domain.description} */}</p>
               )}
             </div>
           </div>
