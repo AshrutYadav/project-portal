@@ -207,10 +207,10 @@ function ProjectPage() {
         </svg>
       </div>
 
-      <div className="w-full px-4 relative z-10 flex-1 flex flex-col h-full space-y-6 overflow-hidden">
+      <div className="w-full lg:px-4 relative z-10 flex-1 flex flex-col h-full space-y-4 lg:space-y-6 overflow-hidden">
 
         {/* HEADER */}
-        <div className="bg-[#11161B] rounded-2xl p-3 px-5 shadow-2xl border border-[#1F2932] relative shrink-0">
+        <div className="bg-[#11161B] rounded-2xl md:p-3 px-4 py-4 md:px-5 shadow-2xl border border-[#1F2932] relative shrink-0">
 
           {/* Top terminal detail */}
           <div className="absolute top-3 right-5 text-right text-[9px] text-[#5C8A70] space-y-1 opacity-80 tracking-widest pl-2 z-10 hidden sm:block">
@@ -228,7 +228,7 @@ function ProjectPage() {
             {canEdit && (
               <button
                 onClick={handleDeleteProject}
-                className="relative right-[245px] flex items-center text-[#8A5C5C] hover:text-[#D96969] transition-colors w-max text-[10px] tracking-widest border border-transparent hover:border-[#D96969] px-2 py-1 rounded bg-[#1A0A0A] hover:bg-[#2A0F0F] group"
+                className="relative lg:right-[245px] flex items-center text-[#8A5C5C] hover:text-[#D96969] transition-colors w-max text-[10px] tracking-widest border border-transparent hover:border-[#D96969] px-2 py-1 rounded bg-[#1A0A0A] hover:bg-[#2A0F0F] group ml-auto"
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1.5 opacity-80 group-hover:opacity-100"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                 <span>[ DELETE_PROJECT ]</span>
@@ -236,10 +236,10 @@ function ProjectPage() {
             )}
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div className="flex-1">
+          <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+            <div className="flex-1 min-w-0">
               <h1 className="text-xl font-bold mb-1 text-gray-200 tracking-wider flex items-center w-full">
-                <span className="text-[#69D999] mr-2 text-lg shrink-0">&gt;</span>
+                <span className="text-[#69D999] mr-2 text-lg shrink-0 hidden sm:inline">&gt;</span>
                 <input
                   type="text"
                   value={editedTitle}
@@ -290,8 +290,9 @@ function ProjectPage() {
               </div>
             </div>
 
-            <div className="flex items-center space-x-4 text-[#8BA596] text-[11px] tracking-widest bg-[#0D141A] px-3 py-1.5 rounded-xl border border-[#1F2932] w-max shrink-0 mt-2 md:mt-0">
-              <div className="flex items-center">
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-4 text-[#8BA596] text-[11px] tracking-widest bg-[#0D141A] p-2 sm:px-3 sm:py-1.5 rounded-xl border border-[#1F2932] w-full xl:w-max shrink-0 mt-2 xl:mt-0">
+              <div className="flex items-center flex-1 sm:flex-none justify-between sm:justify-start">
+                <span className="mr-2 sm:hidden inline font-bold">STAT:</span>
                 <span className="mr-2 hidden sm:inline">STATUS:</span>
                 <select
                   value={project.status}
@@ -305,10 +306,10 @@ function ProjectPage() {
                 </select>
               </div>
 
-              <span className="text-[#4A5D53]">|</span>
+              <span className="text-[#4A5D53] hidden sm:inline">|</span>
 
-              <div className="flex flex-col space-y-0.5">
-                <div className="flex justify-between items-center w-36 sm:w-48 relative group/date mt-1 sm:mt-0">
+              <div className="flex sm:flex-col sm:space-y-0.5 justify-between w-full sm:w-auto mt-2 sm:mt-0">
+                <div className="flex sm:justify-between items-center w-auto sm:w-48 relative group/date mt-1 sm:mt-0">
                   <span>DEADLINE:</span>
                   <input
                     type="date"
@@ -354,14 +355,14 @@ function ProjectPage() {
         </div>
 
         {/* MAIN CONTENT AREA */}
-        <div className="flex flex-1 min-h-0 gap-6 overflow-hidden relative z-10 w-full transition-all duration-500 ease-in-out">
+        <div className="flex flex-col lg:flex-row flex-1 min-h-0 gap-4 lg:gap-6 overflow-hidden relative z-10 w-full transition-all duration-500 ease-in-out">
 
           {/* LEFT SIDE (MEMBERS & TASKS UNIFIED TABLE) */}
           <div className={`bg-[#11161B] rounded-xl border border-[#1F2932] shadow-2xl flex flex-col min-h-0 overflow-hidden transition-all duration-500 ease-in-out
-              ${isChatOpen ? "w-[55%]" : "w-full"}`}
+              ${isChatOpen ? "h-1/2 lg:h-auto lg:w-[55%]" : "h-full w-full"}`}
           >
             {/* TABLE HEADER (Unified) */}
-            <div className="flex w-full border-b border-[#212A31] text-[#629778] tracking-[0.2em] font-bold text-[13px] bg-[#0A0F13] shrink-0">
+            <div className="md:flex hidden w-full border-b border-[#212A31] text-[#629778] tracking-[0.2em] font-bold text-[13px] bg-[#0A0F13] shrink-0">
               <div className="w-1/3 p-4 pl-6 border-r border-[#212A31] flex items-center">
                 <span>[ TEAM_MEMBERS ]</span>
               </div>
@@ -381,10 +382,10 @@ function ProjectPage() {
                 const canEditOnlyName = !canEdit && isSelf;
 
                 return (
-                  <div key={index} className="flex w-full border-b border-[#1A2228] hover:bg-[#151B20] transition-colors group relative">
+                  <div key={index} className="flex flex-col md:flex-row w-full border-b border-[#1A2228] hover:bg-[#151B20] transition-colors group relative">
 
                     {/* Member Column */}
-                    <div className="w-1/3 p-4 pl-6 border-r border-[#212A31] flex justify-between items-start">
+                    <div className="w-full md:w-1/3 p-3 md:p-4 md:pl-6 border-b md:border-b-0 md:border-r border-[#212A31] flex justify-between items-start bg-[#0A0F13] md:bg-transparent">
                       <div className="flex items-center space-x-3 truncate w-full">
                         <div className="flex items-center justify-center w-6 h-6 rounded-full border border-[#69D999] text-[#69D999] text-[11px] uppercase font-bold bg-[#69D999]/10 shrink-0">
                           {initial}
@@ -479,9 +480,10 @@ function ProjectPage() {
                     </div>
 
                     {/* Task Column */}
-                    <div className="w-2/3 p-4 pl-6 flex flex-col justify-center space-y-3 relative">
+                    <div className="w-full md:w-2/3 p-3 pt-4 md:p-4 md:pl-6 flex flex-col justify-center space-y-4 md:space-y-3 relative">
+                      {memberTasks.length > 0 && <span className="md:hidden text-[#629778] tracking-widest text-[10px] uppercase font-bold mb-1">[ CONTRIBUTIONS ]</span>}
                       {memberTasks.map((task, tIndex) => (
-                        <div key={task._id} className="flex justify-between items-center w-full group/task">
+                        <div key={task._id} className="flex flex-col sm:flex-row justify-between sm:items-center w-full group/task gap-2 sm:gap-0">
                           {editingTaskId === task._id ? (
                             <input
                               type="text"
@@ -596,7 +598,7 @@ function ProjectPage() {
               })}
 
               {/* ADD MEMBER SECTION */}
-              <div className="p-4 pl-6 border-b border-[#1A2228] bg-[#0A0F13]/50 shrink-0">
+              <div className="p-3 md:p-4 pl-4 md:pl-6 border-t border-[#1A2228] bg-[#0A0F13]/50 shrink-0">
                 {!isAddingMember ? (
                   <button
                     onClick={() => setIsAddingMember(true)}
@@ -607,8 +609,8 @@ function ProjectPage() {
                   </button>
                 ) : (
                   <div className="flex flex-col w-full">
-                    <div className="flex items-center space-x-3 w-full animate-fade-in group/add">
-                      <div className="flex space-x-3 w-1/2">
+                    <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 lg:space-x-3 w-full animate-fade-in group/add">
+                      <div className="flex flex-col sm:flex-row gap-3 sm:space-x-3 w-full lg:w-1/2">
                         <input
                           type="text"
                           autoFocus
@@ -632,15 +634,16 @@ function ProjectPage() {
                             if (e.key === "Enter") handleAddMember();
                             if (e.key === "Escape") { setIsAddingMember(false); setMemberError(""); }
                           }}
-                          className="text-[12px] bg-transparent border-b border-[#304137] focus:border-[#69D999] outline-none text-[#69D999] placeholder-[#2A3F33] w-1/2 pb-1"
+                          className="text-[12px] bg-transparent border-b border-[#304137] focus:border-[#69D999] outline-none text-[#69D999] placeholder-[#2A3F33] w-full sm:w-1/2 pb-1"
                         />
                       </div>
 
-                      <select
-                        value={newMember.role}
-                        onChange={(e) => setNewMember({ ...newMember, role: e.target.value })}
-                        className="bg-[#11161B] border border-[#212A31] text-gray-400 text-[10px] p-1 rounded outline-none tracking-widest uppercase cursor-pointer"
-                      >
+                      <div className="flex items-center justify-between w-full lg:w-max">
+                        <select
+                          value={newMember.role}
+                          onChange={(e) => setNewMember({ ...newMember, role: e.target.value })}
+                          className="bg-[#11161B] border border-[#212A31] text-gray-400 text-[10px] p-1.5 rounded outline-none tracking-widest uppercase cursor-pointer"
+                        >
                         <option value="Member">Member</option>
                         <option value="Lead">Lead</option>
                       </select>
@@ -652,12 +655,13 @@ function ProjectPage() {
                       >
                         ASSIGN
                       </button>
-                      <button
-                        onClick={() => { setIsAddingMember(false); setMemberError(""); }}
-                        className="px-3 py-1.5 text-gray-500 hover:text-[#D96969] text-[10px] tracking-widest uppercase ml-2"
-                      >
-                        CANCEL
-                      </button>
+                        <button
+                          onClick={() => { setIsAddingMember(false); setMemberError(""); }}
+                          className="px-3 py-1.5 text-gray-500 hover:text-[#D96969] text-[10px] tracking-widest uppercase ml-2"
+                        >
+                          CANCEL
+                        </button>
+                      </div>
                     </div>
 
                     {memberError && (
@@ -674,8 +678,8 @@ function ProjectPage() {
 
           {/* RIGHT SIDE (CHAT) */}
           <div
-            className={`bg-[#11161B] rounded-2xl p-3 px-4 shadow-2xl border border-[#1F2932] flex flex-col relative h-full transition-all duration-500 ease-in-out
-                ${isChatOpen ? "w-[45%] opacity-100 translate-x-0" : "w-0 opacity-0 translate-x-full overflow-hidden p-0 border-none ml-[-24px]"}
+            className={`bg-[#11161B] rounded-2xl p-3 px-4 shadow-2xl border border-[#1F2932] flex flex-col relative transition-all duration-500 ease-in-out
+                ${isChatOpen ? "h-1/2 lg:h-auto lg:w-[45%] opacity-100 lg:translate-x-0" : "h-0 lg:h-auto lg:w-0 opacity-0 lg:translate-x-full overflow-hidden p-0 border-none lg:ml-[-24px]"}
               `}
           >
             {isChatOpen && (
