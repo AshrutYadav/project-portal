@@ -392,56 +392,56 @@ function ProjectPage() {
                           </div>
                           <div className="flex flex-col flex-1 pl-1 truncate min-w-0">
                             {editingMemberIndex === index ? (
-                                <div
-                                  className="flex items-center space-x-3 w-full"
-                                  onBlur={(e) => {
-                                      if (!e.currentTarget.contains(e.relatedTarget)) { saveEditedMember(index); }
-                                  }}
-                                >
-                                  {canEdit ? (
-                                    <input
-                                      type="text"
-                                      placeholder="ID"
-                                      value={editedMemberId}
-                                      onChange={(e) => setEditedMemberId(e.target.value.toUpperCase())}
-                                      onKeyDown={(e) => {
-                                        if (e.key === 'Enter') saveEditedMember(index);
-                                        if (e.key === 'Escape') setEditingMemberIndex(null);
-                                      }}
-                                      className="bg-transparent border-b border-[#69D999] text-[#5C8A70] text-[12px] font-bold outline-none w-[90px] shrink-0 uppercase"
-                                    />
-                                  ) : (
-                                    <span className="text-[#5C8A70] text-[12px] font-bold shrink-0">{member.user?.collegeId || member.name?.split(' - ')[0] || "UNKNOWN"}</span>
-                                  )}
+                              <div
+                                className="flex items-center space-x-3 w-full"
+                                onBlur={(e) => {
+                                  if (!e.currentTarget.contains(e.relatedTarget)) { saveEditedMember(index); }
+                                }}
+                              >
+                                {canEdit ? (
                                   <input
                                     type="text"
-                                    autoFocus
-                                    placeholder="NAME"
-                                    value={editedMemberName}
-                                    onChange={(e) => setEditedMemberName(e.target.value)}
+                                    placeholder="ID"
+                                    value={editedMemberId}
+                                    onChange={(e) => setEditedMemberId(e.target.value.toUpperCase())}
                                     onKeyDown={(e) => {
                                       if (e.key === 'Enter') saveEditedMember(index);
                                       if (e.key === 'Escape') setEditingMemberIndex(null);
                                     }}
-                                    className="bg-transparent border-b border-[#69D999] text-gray-200 text-[13px] outline-none w-full min-w-0"
+                                    className="bg-transparent border-b border-[#69D999] text-[#5C8A70] text-[12px] font-bold outline-none w-[90px] shrink-0 uppercase"
                                   />
-                                </div>
-                            ) : (
-                                <div
-                                  onClick={() => {
-                                    if (canEdit || canEditOnlyName) {
-                                      setEditingMemberIndex(index);
-                                      setEditedMemberId(member.user?.collegeId || member.name?.split(' - ')[0] || "");
-                                      setEditedMemberName(member.user?.name || member.name?.split(' - ')[1] || member.name || "");
-                                    }
+                                ) : (
+                                  <span className="text-[#5C8A70] text-[12px] font-bold shrink-0">{member.user?.collegeId || member.name?.split(' - ')[0] || "UNKNOWN"}</span>
+                                )}
+                                <input
+                                  type="text"
+                                  autoFocus
+                                  placeholder="NAME"
+                                  value={editedMemberName}
+                                  onChange={(e) => setEditedMemberName(e.target.value)}
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Enter') saveEditedMember(index);
+                                    if (e.key === 'Escape') setEditingMemberIndex(null);
                                   }}
-                                  className={`flex flex-col justify-center space-y-0.5 w-full min-w-0 ${(canEdit || canEditOnlyName) ? "cursor-pointer group-hover:opacity-80 transition-opacity" : ""}`}
-                                >
-                                  <span className="text-[#69D999] text-[13px] sm:text-[12px] font-bold tracking-widest w-full truncate">{member.user?.collegeId || member.name?.split(' - ')[0] || "UNKNOWN"}</span>
-                                  <span className={`text-gray-400 sm:text-gray-300 text-[12px] sm:text-[13px] w-full truncate ${(canEdit || canEditOnlyName) ? "hover:underline decoration-[#304137] underline-offset-4" : ""}`}>
-                                    {member.user?.name || member.name?.split(' - ')[1] || member.name || "Unknown"}
-                                  </span>
-                                </div>
+                                  className="bg-transparent border-b border-[#69D999] text-gray-200 text-[13px] outline-none w-full min-w-0"
+                                />
+                              </div>
+                            ) : (
+                              <div
+                                onClick={() => {
+                                  if (canEdit || canEditOnlyName) {
+                                    setEditingMemberIndex(index);
+                                    setEditedMemberId(member.user?.collegeId || member.name?.split(' - ')[0] || "");
+                                    setEditedMemberName(member.user?.name || member.name?.split(' - ')[1] || member.name || "");
+                                  }
+                                }}
+                                className={`flex flex-col justify-center space-y-0.5 w-full min-w-0 ${(canEdit || canEditOnlyName) ? "cursor-pointer group-hover:opacity-80 transition-opacity" : ""}`}
+                              >
+                                <span className="text-[#69D999] text-[13px] sm:text-[12px] font-bold tracking-widest w-full truncate">{member.user?.collegeId || member.name?.split(' - ')[0] || "UNKNOWN"}</span>
+                                <span className={`text-gray-400 sm:text-gray-300 text-[12px] sm:text-[13px] w-full truncate ${(canEdit || canEditOnlyName) ? "hover:underline decoration-[#304137] underline-offset-4" : ""}`}>
+                                  {member.user?.name || member.name?.split(' - ')[1] || member.name || "Unknown"}
+                                </span>
+                              </div>
                             )}
                           </div>
                         </div>
@@ -643,17 +643,17 @@ function ProjectPage() {
                           onChange={(e) => setNewMember({ ...newMember, role: e.target.value })}
                           className="bg-[#11161B] border border-[#212A31] text-gray-400 text-[10px] p-1.5 rounded outline-none tracking-widest uppercase cursor-pointer"
                         >
-                        <option value="Member">Member</option>
-                        <option value="Lead">Lead</option>
-                      </select>
+                          <option value="Member">Member</option>
+                          <option value="Lead">Lead</option>
+                        </select>
 
-                      <button
-                        onClick={handleAddMember}
-                        disabled={!newMember.collegeId.trim()}
-                        className="px-4 py-1.5 border border-[#193A27] rounded text-[#69D999] bg-[#0B1510] hover:bg-[#101D17] text-[10px] tracking-widest transition-all shadow-[0_0_10px_rgba(25,58,39,0.3)] disabled:opacity-50 disabled:cursor-not-allowed uppercase ml-auto lg:ml-4"
-                      >
-                        ASSIGN
-                      </button>
+                        <button
+                          onClick={handleAddMember}
+                          disabled={!newMember.collegeId.trim()}
+                          className="px-4 py-1.5 border border-[#193A27] rounded text-[#69D999] bg-[#0B1510] hover:bg-[#101D17] text-[10px] tracking-widest transition-all shadow-[0_0_10px_rgba(25,58,39,0.3)] disabled:opacity-50 disabled:cursor-not-allowed uppercase ml-auto lg:ml-4"
+                        >
+                          ASSIGN
+                        </button>
                         <button
                           onClick={() => { setIsAddingMember(false); setMemberError(""); }}
                           className="px-3 py-1.5 text-gray-500 hover:text-[#D96969] text-[10px] tracking-widest uppercase ml-2"
