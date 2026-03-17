@@ -152,7 +152,7 @@ function AddProjectPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                             {/* TITLE */}
-                            <div className="space-y-2 md:col-span-2">
+                            <div className="space-y-3 md:col-span-2">
                                 <label className="block text-[11px] text-[#629778] tracking-widest font-bold">
                                     PROJECT_TITLE <span className="text-[#D96969]">*</span>
                                 </label>
@@ -164,7 +164,7 @@ function AddProjectPage() {
                                     placeholder="Enter Operation Designation..."
                                     value={formData.title}
                                     onChange={handleChange}
-                                    className="w-full bg-[#0A0F13] border border-[#212A31] focus:border-[#69D999] rounded text-[14px] text-gray-200 p-3 outline-none transition-colors"
+                                    className="w-full bg-[#0A0F13] border border-[#212A31] focus:border-[#69D999] rounded text-[14px] text-gray-200 p-3.5 outline-none transition-colors"
                                 />
                             </div>
 
@@ -288,28 +288,28 @@ function AddProjectPage() {
                                           </button>
                                         </div>
 
-                                        <div className="flex flex-col sm:flex-row flex-1 gap-2 w-full">
+                                        <div className="flex flex-col sm:flex-row flex-1 gap-4 w-full mt-2 sm:mt-0">
                                             <input
                                                 type="text"
                                                 placeholder="OPERATIVE_ID"
                                                 value={member.collegeId || ""}
                                                 onChange={(e) => handleMemberChange(index, "collegeId", e.target.value.toUpperCase())}
-                                                className="w-full sm:w-1/3 bg-transparent border-b border-[#212A31] focus:border-[#69D999] outline-none text-[13px] text-[#69D999] placeholder-[#2A3F33] uppercase pb-1"
+                                                className="w-full sm:w-1/3 bg-[#11161B] sm:bg-transparent border border-[#212A31] sm:border-0 sm:border-b focus:border-[#69D999] rounded sm:rounded-none outline-none text-[13px] text-[#69D999] placeholder-[#2A3F33] uppercase p-2.5 sm:pb-1 sm:p-0"
                                             />
                                             <input
                                                 type="text"
                                                 placeholder="OPERATIVE_NAME"
                                                 value={member.name || ""}
                                                 onChange={(e) => handleMemberChange(index, "name", e.target.value)}
-                                                className="w-full sm:w-2/3 bg-transparent border-b border-[#212A31] focus:border-[#69D999] outline-none text-[13px] text-gray-300 placeholder-[#2A3F33] pb-1"
+                                                className="w-full sm:w-2/3 bg-[#11161B] sm:bg-transparent border border-[#212A31] sm:border-0 sm:border-b focus:border-[#69D999] rounded sm:rounded-none outline-none text-[13px] text-gray-300 placeholder-[#2A3F33] p-2.5 sm:pb-1 sm:p-0"
                                             />
                                         </div>
 
-                                        <div className="flex items-center justify-between w-full sm:w-auto mt-2 sm:mt-0">
+                                        <div className="flex items-center justify-between w-full sm:w-auto mt-4 sm:mt-0">
                                             <select
                                                 value={member.role}
                                                 onChange={(e) => handleMemberChange(index, "role", e.target.value)}
-                                                className="bg-[#11161B] border border-[#212A31] text-gray-400 text-[11px] p-1.5 rounded outline-none w-full sm:w-28 shrink-0 tracking-widest uppercase cursor-pointer"
+                                                className="bg-[#11161B] border border-[#212A31] text-gray-400 text-[11px] p-2 sm:p-1.5 rounded outline-none w-full sm:w-28 shrink-0 tracking-widest uppercase cursor-pointer"
                                             >
                                             <option value="Lead">Lead</option>
                                             <option value="Member">Member</option>

@@ -217,7 +217,7 @@ function ProjectPage() {
             <div>[root:project_{projectId.substring(0, 6)}]&gt;_</div>
           </div>
 
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-2 gap-3 sm:gap-0">
             <button
               onClick={() => navigate("/")}
               className="flex items-center text-[#5C8A70] hover:text-[#69D999] transition-colors group w-max text-[11px] tracking-widest"
@@ -228,7 +228,7 @@ function ProjectPage() {
             {canEdit && (
               <button
                 onClick={handleDeleteProject}
-                className="relative lg:right-[245px] flex items-center text-[#8A5C5C] hover:text-[#D96969] transition-colors w-max text-[10px] tracking-widest border border-transparent hover:border-[#D96969] px-2 py-1 rounded bg-[#1A0A0A] hover:bg-[#2A0F0F] group ml-auto"
+                className="relative lg:right-[245px] flex items-center justify-center w-full sm:w-auto text-[#8A5C5C] hover:text-[#D96969] transition-colors text-[10px] tracking-widest border border-transparent hover:border-[#D96969] px-3 py-2 sm:px-2 sm:py-1 rounded bg-[#1A0A0A] hover:bg-[#2A0F0F] group"
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1.5 opacity-80 group-hover:opacity-100"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                 <span>[ DELETE_PROJECT ]</span>
@@ -290,15 +290,14 @@ function ProjectPage() {
               </div>
             </div>
 
-            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-4 text-[#8BA596] text-[11px] tracking-widest bg-[#0D141A] p-2 sm:px-3 sm:py-1.5 rounded-xl border border-[#1F2932] w-full xl:w-max shrink-0 mt-2 xl:mt-0">
-              <div className="flex items-center flex-1 sm:flex-none justify-between sm:justify-start">
-                <span className="mr-2 sm:hidden inline font-bold">STAT:</span>
-                <span className="mr-2 hidden sm:inline">STATUS:</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-[#8BA596] text-[11px] tracking-widest bg-[#0D141A] p-3 sm:px-3 sm:py-1.5 rounded-xl border border-[#1F2932] w-full xl:w-max shrink-0 mt-4 xl:mt-0">
+              <div className="flex items-center w-full justify-between sm:w-auto sm:justify-start">
+                <span className="font-bold mr-2">STATUS:</span>
                 <select
                   value={project.status}
                   onChange={(e) => updateProjectField('status', e.target.value)}
                   disabled={!canEdit}
-                  className={`px-1.5 py-0.5 bg-[#101D17] border border-[#193A27] text-[#69D999] rounded text-[10px] shadow-[0_0_10px_rgba(25,58,39,0.3)] outline-none ${canEdit ? "cursor-pointer" : "opacity-80"} tracking-widest uppercase appearance-none text-center`}
+                  className={`px-2 py-1 sm:px-1.5 sm:py-0.5 bg-[#101D17] border border-[#193A27] text-[#69D999] rounded text-[10px] shadow-[0_0_10px_rgba(25,58,39,0.3)] outline-none ${canEdit ? "cursor-pointer" : "opacity-80"} tracking-widest uppercase appearance-none text-center min-w-[100px]`}
                 >
                   <option value="Proposed">[PROPOSED]</option>
                   <option value="Active">[ACTIVE]</option>
@@ -308,28 +307,28 @@ function ProjectPage() {
 
               <span className="text-[#4A5D53] hidden sm:inline">|</span>
 
-              <div className="flex sm:flex-col sm:space-y-0.5 justify-between w-full sm:w-auto mt-2 sm:mt-0">
-                <div className="flex sm:justify-between items-center w-auto sm:w-48 relative group/date mt-1 sm:mt-0">
-                  <span>DEADLINE:</span>
+              <div className="flex flex-col space-y-3 sm:space-y-0.5 w-full sm:w-auto">
+                <div className="flex justify-between items-center w-full sm:w-48 relative group/date">
+                  <span className="font-bold text-gray-500">DEADLINE:</span>
                   <input
                     type="date"
                     value={project.deadline ? project.deadline.split('T')[0] : ""}
                     onChange={(e) => updateProjectField('deadline', e.target.value)}
                     disabled={!canEdit}
-                    className={`bg-transparent text-gray-300 text-[11px] outline-none tracking-widest text-right ${canEdit ? "cursor-pointer hover:text-[#69D999]" : "opacity-80"} [color-scheme:dark] w-[125px]`}
+                    className={`bg-transparent text-gray-300 text-[11px] sm:text-[10px] outline-none tracking-widest text-right ${canEdit ? "cursor-pointer hover:text-[#69D999]" : "opacity-80"} [color-scheme:dark] w-[130px] sm:w-[125px]`}
                   />
-                  <div className="absolute right-0 bottom-[-2px] w-0 h-[1px] bg-[#69D999] group-hover/date:w-[125px] transition-all duration-300"></div>
+                  <div className="absolute right-0 bottom-[-4px] w-0 h-[1px] bg-[#69D999] group-hover/date:w-[125px] transition-all duration-300"></div>
                 </div>
-                <div className="flex justify-between items-center w-36 sm:w-48 relative group/date">
-                  <span>CREATED:</span>
+                <div className="flex justify-between items-center w-full sm:w-48 relative group/date">
+                  <span className="font-bold text-gray-500">CREATED:</span>
                   <input
                     type="date"
                     value={project.startDate ? project.startDate.split('T')[0] : ""}
                     onChange={(e) => updateProjectField('startDate', e.target.value)}
                     disabled={!canEdit}
-                    className={`bg-transparent text-gray-300 text-[11px] outline-none tracking-widest text-right ${canEdit ? "cursor-pointer hover:text-[#69D999]" : "opacity-80"} [color-scheme:dark] w-[125px]`}
+                    className={`bg-transparent text-gray-300 text-[11px] sm:text-[10px] outline-none tracking-widest text-right ${canEdit ? "cursor-pointer hover:text-[#69D999]" : "opacity-80"} [color-scheme:dark] w-[130px] sm:w-[125px]`}
                   />
-                  <div className="absolute right-0 bottom-[-2px] w-0 h-[1px] bg-[#69D999] group-hover/date:w-[125px] transition-all duration-300"></div>
+                  <div className="absolute right-0 bottom-[-4px] w-0 h-[1px] bg-[#69D999] group-hover/date:w-[125px] transition-all duration-300"></div>
                 </div>
               </div>
             </div>
@@ -337,17 +336,17 @@ function ProjectPage() {
         </div>
 
         {/* CONNECT WITH MEMBERS BUTTON (Chat Toggle) */}
-        <div className="flex justify-end pr-2 pt-0 pb-1 shrink-0 relative z-10 w-full mb-1 h-10">
+        <div className="flex justify-end pr-0 sm:pr-2 pt-0 pb-1 shrink-0 relative z-10 w-full mb-2 h-auto sm:h-10 mt-2 sm:mt-0">
           {(myMember || isAdmin) && (
             <button
               onClick={() => setIsChatOpen(!isChatOpen)}
-              className={`flex items-center space-x-3 px-4 py-2 border rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(25,58,39,0.2)] hover:shadow-[0_0_20px_rgba(105,217,153,0.4)]
+              className={`flex items-center justify-center space-x-3 w-full sm:w-auto px-4 py-3 sm:py-2 border rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(25,58,39,0.2)] hover:shadow-[0_0_20px_rgba(105,217,153,0.4)]
                   ${isChatOpen
                   ? "bg-[#101D17] border-[#69D999] text-[#69D999]"
                   : "bg-[#0D141A] border-[#212A31] text-[#5C8A70] hover:text-[#69D999] hover:border-[#69D999]"}`}
             >
               <div className="w-2 h-2 rounded-full bg-[#69D999] shadow-[0_0_8px_rgba(105,217,153,0.8)] animate-pulse"></div>
-              <span className="text-[11px] tracking-widest font-bold">
+              <span className="text-[12px] sm:text-[11px] tracking-widest font-bold uppercase w-full sm:w-auto text-center">
                 {isChatOpen ? "[ CLOSE_SECURE_CHANNEL ]" : "CONNECT WITH MEMBERS"}
               </span>
             </button>
@@ -385,70 +384,70 @@ function ProjectPage() {
                   <div key={index} className="flex flex-col md:flex-row w-full border-b border-[#1A2228] hover:bg-[#151B20] transition-colors group relative">
 
                     {/* Member Column */}
-                    <div className="w-full md:w-1/3 p-3 md:p-4 md:pl-6 border-b md:border-b-0 md:border-r border-[#212A31] flex justify-between items-start bg-[#0A0F13] md:bg-transparent">
-                      <div className="flex items-center space-x-3 truncate w-full">
-                        <div className="flex items-center justify-center w-6 h-6 rounded-full border border-[#69D999] text-[#69D999] text-[11px] uppercase font-bold bg-[#69D999]/10 shrink-0">
-                          {initial}
-                        </div>
-                        {editingMemberIndex === index ? (
-                          <div
-                            className="flex items-center space-x-3 w-full"
-                            onBlur={(e) => {
-                              // If there is no relatedTarget (clicked outside window) 
-                              // or if relatedTarget is not inside this div, then save
-                              if (!e.currentTarget.contains(e.relatedTarget)) {
-                                saveEditedMember(index);
-                              }
-                            }}
-                          >
-                            {canEdit ? (
-                              <input
-                                type="text"
-                                placeholder="ID"
-                                value={editedMemberId}
-                                onChange={(e) => setEditedMemberId(e.target.value.toUpperCase())}
-                                onKeyDown={(e) => {
-                                  if (e.key === 'Enter') saveEditedMember(index);
-                                  if (e.key === 'Escape') setEditingMemberIndex(null);
-                                }}
-                                className="bg-transparent border-b border-[#69D999] text-[#5C8A70] text-[12px] font-bold outline-none w-[110px] shrink-0 uppercase"
-                              />
+                    <div className="w-full md:w-1/3 p-4 md:pl-6 border-b md:border-b-0 md:border-r border-[#212A31] flex justify-between items-start md:items-center bg-[#0A0F13] md:bg-transparent">
+                      <div className="flex flex-col sm:flex-row sm:items-center items-start gap-3 sm:space-x-3 w-full pr-2">
+                        <div className="flex items-center space-x-3 w-full shrink-0">
+                          <div className="flex items-center justify-center w-8 h-8 sm:w-7 sm:h-7 rounded-full border border-[#69D999] text-[#69D999] text-[13px] sm:text-[11px] uppercase font-bold bg-[#69D999]/10 shrink-0 shadow-[0_0_10px_rgba(105,217,153,0.1)]">
+                            {initial}
+                          </div>
+                          <div className="flex flex-col flex-1 pl-1 truncate min-w-0">
+                            {editingMemberIndex === index ? (
+                                <div
+                                  className="flex items-center space-x-3 w-full"
+                                  onBlur={(e) => {
+                                      if (!e.currentTarget.contains(e.relatedTarget)) { saveEditedMember(index); }
+                                  }}
+                                >
+                                  {canEdit ? (
+                                    <input
+                                      type="text"
+                                      placeholder="ID"
+                                      value={editedMemberId}
+                                      onChange={(e) => setEditedMemberId(e.target.value.toUpperCase())}
+                                      onKeyDown={(e) => {
+                                        if (e.key === 'Enter') saveEditedMember(index);
+                                        if (e.key === 'Escape') setEditingMemberIndex(null);
+                                      }}
+                                      className="bg-transparent border-b border-[#69D999] text-[#5C8A70] text-[12px] font-bold outline-none w-[90px] shrink-0 uppercase"
+                                    />
+                                  ) : (
+                                    <span className="text-[#5C8A70] text-[12px] font-bold shrink-0">{member.user?.collegeId || member.name?.split(' - ')[0] || "UNKNOWN"}</span>
+                                  )}
+                                  <input
+                                    type="text"
+                                    autoFocus
+                                    placeholder="NAME"
+                                    value={editedMemberName}
+                                    onChange={(e) => setEditedMemberName(e.target.value)}
+                                    onKeyDown={(e) => {
+                                      if (e.key === 'Enter') saveEditedMember(index);
+                                      if (e.key === 'Escape') setEditingMemberIndex(null);
+                                    }}
+                                    className="bg-transparent border-b border-[#69D999] text-gray-200 text-[13px] outline-none w-full min-w-0"
+                                  />
+                                </div>
                             ) : (
-                              <span className="text-[#5C8A70] text-[12px] font-bold shrink-0">{member.user?.collegeId || member.name?.split(' - ')[0] || "UNKNOWN"}</span>
+                                <div
+                                  onClick={() => {
+                                    if (canEdit || canEditOnlyName) {
+                                      setEditingMemberIndex(index);
+                                      setEditedMemberId(member.user?.collegeId || member.name?.split(' - ')[0] || "");
+                                      setEditedMemberName(member.user?.name || member.name?.split(' - ')[1] || member.name || "");
+                                    }
+                                  }}
+                                  className={`flex flex-col justify-center space-y-0.5 w-full min-w-0 ${(canEdit || canEditOnlyName) ? "cursor-pointer group-hover:opacity-80 transition-opacity" : ""}`}
+                                >
+                                  <span className="text-[#69D999] text-[13px] sm:text-[12px] font-bold tracking-widest w-full truncate">{member.user?.collegeId || member.name?.split(' - ')[0] || "UNKNOWN"}</span>
+                                  <span className={`text-gray-400 sm:text-gray-300 text-[12px] sm:text-[13px] w-full truncate ${(canEdit || canEditOnlyName) ? "hover:underline decoration-[#304137] underline-offset-4" : ""}`}>
+                                    {member.user?.name || member.name?.split(' - ')[1] || member.name || "Unknown"}
+                                  </span>
+                                </div>
                             )}
-                            <input
-                              type="text"
-                              autoFocus
-                              placeholder="NAME"
-                              value={editedMemberName}
-                              onChange={(e) => setEditedMemberName(e.target.value)}
-                              onKeyDown={(e) => {
-                                if (e.key === 'Enter') saveEditedMember(index);
-                                if (e.key === 'Escape') setEditingMemberIndex(null);
-                              }}
-                              className="bg-transparent border-b border-[#69D999] text-gray-200 text-[13px] outline-none w-full"
-                            />
                           </div>
-                        ) : (
-                          <div
-                            onClick={() => {
-                              if (canEdit || canEditOnlyName) {
-                                setEditingMemberIndex(index);
-                                setEditedMemberId(member.user?.collegeId || member.name?.split(' - ')[0] || "");
-                                setEditedMemberName(member.user?.name || member.name?.split(' - ')[1] || member.name || "");
-                              }
-                            }}
-                            className={`flex items-center space-x-3 w-full ${(canEdit || canEditOnlyName) ? "cursor-pointer group-hover:opacity-80 transition-opacity" : ""}`}
-                          >
-                            <span className="text-[#69D999] text-[12px] font-bold tracking-widest w-[110px] truncate shrink-0">{member.user?.collegeId || member.name?.split(' - ')[0] || "UNKNOWN"}</span>
-                            <span className={`text-gray-300 text-[13px] truncate ${(canEdit || canEditOnlyName) ? "hover:underline decoration-[#304137] underline-offset-4" : ""}`}>
-                              {member.user?.name || member.name?.split(' - ')[1] || member.name || "Unknown"}
-                            </span>
-                          </div>
-                        )}
+                        </div>
                       </div>
 
-                      <div className="flex items-center">
+                      <div className="flex items-center ml-auto">
                         <button
                           onClick={() => {
                             if (!isAdmin) return;
@@ -459,7 +458,7 @@ function ProjectPage() {
                             }
                             updateProjectField('members', newMembersList);
                           }}
-                          className={`text-[10px] tracking-widest text-[#5C8A70] bg-[#070B0E] px-2 py-1 rounded border border-[#15201A] shrink-0 ml-2 ${isAdmin ? "hover:bg-[#101D17] hover:text-[#69D999] hover:border-[#193A27] transition-all cursor-pointer" : "cursor-default opacity-80"}`}
+                          className={`text-[9px] sm:text-[10px] tracking-[0.2em] font-bold text-[#5C8A70] bg-[#070B0E] px-2.5 py-1.5 rounded border border-[#15201A] shrink-0 ml-3 ${isAdmin ? "hover:bg-[#101D17] hover:text-[#69D999] hover:border-[#193A27] shadow-[0_0_8px_rgba(0,0,0,0.5)] cursor-pointer" : "cursor-default shadow-[0_0_8px_rgba(0,0,0,0.5)]"}`}
                         >
                           {member.role.toUpperCase()}
                         </button>
@@ -470,10 +469,10 @@ function ProjectPage() {
                               const newMembersList = project.members.filter((_, i) => i !== index);
                               updateProjectField('members', newMembersList);
                             }}
-                            className="text-[#D96969] bg-[#070B0E] border border-[#1A0A0A] hover:bg-[#1A0A0A] p-1.5 rounded ml-2 transition-colors cursor-pointer"
+                            className="text-[#D96969] bg-[#070B0E] border border-[#1A0A0A] hover:bg-[#1A0A0A] p-2 sm:p-1.5 rounded ml-2 sm:ml-3 transition-colors cursor-pointer"
                             title="Remove Member"
                           >
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                           </button>
                         )}
                       </div>

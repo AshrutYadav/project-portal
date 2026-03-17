@@ -319,7 +319,7 @@ function Dashboard() {
                     </div>
 
                     {selectedType === "All" && (
-                      <div className="tracking-widest pl-2 md:pl-4 flex items-center pr-4">
+                      <div className="tracking-widest pl-8 md:pl-4 flex items-center pr-4">
                         <span className="shrink-0 mr-3 hidden md:inline">|</span>
                         <span className="text-[12px] md:text-[10px] tracking-widest px-2 py-0.5 rounded border border-[#193A27] bg-[#101D17] text-[#69D999] opacity-80 shrink-0 truncate mt-[1px]">
                           [{project.status.toUpperCase()}]
@@ -327,8 +327,8 @@ function Dashboard() {
                       </div>
                     )}
 
-                    <div className="tracking-widest pl-4 flex items-center">
-                      <span className="shrink-0 mr-3">|</span>
+                    <div className="tracking-widest pl-8 md:pl-4 flex items-center">
+                      <span className="shrink-0 mr-3 hidden md:inline">|</span>
                       <div className="flex items-center" onClick={(e) => e.stopPropagation()}>
                         <span className="text-[#5C8A70] mr-2">[</span>
                         <input
@@ -341,7 +341,7 @@ function Dashboard() {
                       </div>
                     </div>
 
-                    <div className="tracking-widest pl-2 md:pl-4 flex items-center">
+                    <div className="tracking-widest pl-8 md:pl-4 flex items-center">
                       <span className="shrink-0 mr-3 hidden md:inline">|</span>
                       <div className="flex items-center" onClick={(e) => e.stopPropagation()}>
                         <span className="text-[#5C8A70] mr-2">[</span>
@@ -355,13 +355,17 @@ function Dashboard() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between pl-2 md:pl-4 pr-6 w-full">
-                      <div className="flex items-center space-x-3 tracking-widest min-w-0">
-                        <span className="shrink-0 hidden md:inline">|</span>
-                        <div className="flex items-center justify-center w-5 h-5 rounded-full border border-[#69D999] text-[#69D999] text-[10px] uppercase font-bold bg-[#69D999]/10 shrink-0">
-                          {initial}
+                    <div className="flex items-center justify-between pl-8 md:pl-4 pr-6 w-full">
+                      <div className="flex items-center tracking-widest min-w-0">
+                        <span className="shrink-0 hidden md:inline mr-3">|</span>
+                        <div className="flex items-center">
+                          <span className="text-[#5C8A70] mr-2">[</span>
+                          <div className="flex items-center justify-center w-5 h-5 rounded-full border border-[#69D999] text-[#69D999] text-[10px] uppercase font-bold bg-[#69D999]/10 shrink-0">
+                            {initial}
+                          </div>
+                          <span className="text-gray-300 truncate max-w-[120px] ml-2">{leadName}</span>
+                          <span className="text-[#5C8A70] ml-2">]</span>
                         </div>
-                        <span className="text-gray-300 truncate">{leadName} ]</span>
                       </div>
                       <div className="text-gray-600 tracking-widest leading-none mb-2 group-hover:text-[#69D999] transition-colors shrink-0 ml-4">...</div>
                     </div>

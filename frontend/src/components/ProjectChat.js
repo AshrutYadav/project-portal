@@ -161,9 +161,9 @@ function ProjectChat({ projectId }) {
             <button
               type="submit"
               disabled={!message.trim()}
-              className="flex justify-center flex-col items-center p-3 h-full rounded bg-[#101D17] border border-[#193A27] text-[#69D999] hover:bg-[#152B1E] transition-all duration-300 shadow-[0_0_10px_rgba(25,58,39,0.2)] hover:shadow-[0_0_15px_rgba(105,217,153,0.4)] disabled:opacity-50 disabled:cursor-not-allowed group shrink-0"
+              className="flex justify-center flex-col items-center p-3 sm:px-4 h-full rounded bg-[#101D17] border border-[#193A27] text-[#69D999] hover:bg-[#152B1E] transition-all duration-300 shadow-[0_0_10px_rgba(25,58,39,0.2)] hover:shadow-[0_0_15px_rgba(105,217,153,0.4)] disabled:opacity-50 disabled:cursor-not-allowed group shrink-0"
             >
-              <span className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+              <span className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                 <SendIcon />
               </span>
             </button>
