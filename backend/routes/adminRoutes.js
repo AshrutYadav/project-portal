@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const authMiddleware = require("../middleware/authMiddleware");
 const User = require("../models/User");
+const bcrypt = require("bcryptjs");
 
 // PATCH /admin/promote/:collegeId
 router.patch("/promote/:collegeId", authMiddleware, async (req, res) => {
@@ -65,5 +66,54 @@ router.patch("/revoke/:collegeId", authMiddleware, async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 });
+
+
+
+// POST /admin/add-member
+router.post("/add-member", authMiddleware, async (req, res) => {
+    try {
+        // 🔐 Only admin can add
+        if (!req.user.isAdmin) {
+            return res.status(403).json({ message: "Admins only" });
+        }
+
+        const { name, collegeId, password } = req.body;
+
+        if (!name || !collegeId || !password) {
+            return res.status(400).json({ message: "All fields required" });
+        }
+
+        const existingUser = await User.findOne({ collegeId });
+        if (existingUser) {
+            return res.status(400).json({ message: "User already exists" });
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        const newUser = new User({
+            name,
+            collegeId: collegeId.toUpperCase(),
+            password: hashedPassword,
+            isAdmin: false
+        });
+
+        await newUser.save();
+
+        res.json({
+            message: "Member added successfully",
+            user: {
+                name: newUser.name,
+                collegeId: newUser.collegeId
+            }
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+
 
 module.exports = router;
