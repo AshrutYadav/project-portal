@@ -179,7 +179,7 @@ function AddProjectPage() {
                                     placeholder="Detail the parameters of the operation..."
                                     value={formData.description}
                                     onChange={handleChange}
-                                    className="w-full bg-[#0A0F13] border border-[#212A31] focus:border-[#69D999] rounded text-[13px] text-gray-300 p-3 outline-none transition-colors resize-none custom-scrollbar"
+                                    className="w-full bg-[#0A0F13] border border-[#212A31] focus:border-[#69D999] rounded text-sm text-gray-300 p-3.5 outline-none transition-colors resize-none custom-scrollbar"
                                 ></textarea>
                             </div>
 
@@ -294,14 +294,14 @@ function AddProjectPage() {
                                                 placeholder="OPERATIVE_ID"
                                                 value={member.collegeId || ""}
                                                 onChange={(e) => handleMemberChange(index, "collegeId", e.target.value.toUpperCase())}
-                                                className="w-full sm:w-1/3 bg-[#11161B] sm:bg-transparent border border-[#212A31] sm:border-0 sm:border-b focus:border-[#69D999] rounded sm:rounded-none outline-none text-[13px] text-[#69D999] placeholder-[#2A3F33] uppercase p-2.5 sm:pb-1 sm:p-0"
+                                                className="w-full sm:w-1/3 bg-[#11161B] sm:bg-transparent border border-[#212A31] sm:border-0 sm:border-b focus:border-[#69D999] rounded sm:rounded-none outline-none text-sm text-[#69D999] placeholder-[#2A3F33] uppercase p-2.5 sm:pb-1 sm:p-0"
                                             />
                                             <input
                                                 type="text"
                                                 placeholder="OPERATIVE_NAME"
                                                 value={member.name || ""}
                                                 onChange={(e) => handleMemberChange(index, "name", e.target.value)}
-                                                className="w-full sm:w-2/3 bg-[#11161B] sm:bg-transparent border border-[#212A31] sm:border-0 sm:border-b focus:border-[#69D999] rounded sm:rounded-none outline-none text-[13px] text-gray-300 placeholder-[#2A3F33] p-2.5 sm:pb-1 sm:p-0"
+                                                className="w-full sm:w-2/3 bg-[#11161B] sm:bg-transparent border border-[#212A31] sm:border-0 sm:border-b focus:border-[#69D999] rounded sm:rounded-none outline-none text-sm text-gray-300 placeholder-[#2A3F33] p-2.5 sm:pb-1 sm:p-0"
                                             />
                                         </div>
 
@@ -309,7 +309,7 @@ function AddProjectPage() {
                                             <select
                                                 value={member.role}
                                                 onChange={(e) => handleMemberChange(index, "role", e.target.value)}
-                                                className="bg-[#11161B] border border-[#212A31] text-gray-400 text-[11px] p-2 sm:p-1.5 rounded outline-none w-full sm:w-28 shrink-0 tracking-widest uppercase cursor-pointer"
+                                                className="bg-[#11161B] border border-[#212A31] text-gray-400 text-xs p-2 sm:p-1.5 rounded outline-none w-full sm:w-28 shrink-0 tracking-widest uppercase cursor-pointer"
                                             >
                                             <option value="Lead">Lead</option>
                                             <option value="Member">Member</option>

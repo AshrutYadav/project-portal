@@ -290,7 +290,7 @@ function Dashboard() {
 
           <div className="relative z-10 flex-1 overflow-y-auto custom-scrollbar pr-2 min-h-0">
             {/* TABLE HEADER */}
-            <div className={`hidden md:grid ${selectedType === "All" ? "grid-cols-5" : "grid-cols-4"} text-[#629778] text-[13px] border-b border-[#212A31] pb-4 mb-4 tracking-widest whitespace-nowrap`}>
+            <div className={`hidden md:grid ${selectedType === "All" ? "md:grid-cols-5" : "md:grid-cols-4"} text-[#629778] text-sm font-bold border-b border-[#212A31] pb-4 mb-4 tracking-widest whitespace-nowrap bg-[#0A0F13] p-3 rounded-t-md`}>
               <div className="pl-4">| &lt;PROJECT_NAME&gt;</div>
               {selectedType === "All" && <div className="pl-4">| &lt;STATUS&gt;</div>}
               <div className="pl-4">| &lt;START_DATE&gt;</div>
@@ -309,7 +309,7 @@ function Dashboard() {
                   <div
                     key={project._id}
                     onClick={() => navigate(`/project/${project._id}`)}
-                    className={`grid grid-cols-1 md:${selectedType === "All" ? "grid-cols-5" : "grid-cols-4"} items-center py-4 md:py-3.5 gap-y-3 md:gap-y-0 text-[14px] text-[#8BA596] hover:bg-[#1A2228] transition-colors cursor-pointer rounded-sm border-b md:border border-[#1A2228] md:border-transparent hover:border-[#212A31] group`}
+                    className={`grid grid-cols-1 ${selectedType === "All" ? "md:grid-cols-5" : "md:grid-cols-4"} items-center py-4 md:py-4 gap-y-3 md:gap-y-0 text-[15px] text-[#8BA596] hover:bg-[#1A2228] transition-colors cursor-pointer rounded-md border-b md:border border-[#1A2228] md:border-transparent hover:border-[#212A31] group ${index % 2 === 0 ? 'bg-[#0E1318]' : 'bg-[#11161B]'}`}
                   >
                     <div className="flex items-center space-x-3 pl-2 truncate pr-4">
                       <span className="text-[#69D999] font-bold w-3 shrink-0">
@@ -335,7 +335,7 @@ function Dashboard() {
                           type="date"
                           value={project.startDate ? project.startDate.split('T')[0] : ""}
                           onChange={(e) => updateProjectDate(project._id, 'startDate', e.target.value)}
-                          className="bg-transparent text-[#8BA596] outline-none hover:text-[#69D999] focus:text-[#69D999] cursor-pointer [color-scheme:dark] text-[12px] uppercase w-[125px]"
+                          className="bg-transparent text-[#8BA596] outline-none hover:bg-[#101D17] hover:text-[#69D999] focus:text-[#69D999] cursor-pointer ring-1 ring-transparent hover:ring-[#193A27] rounded px-1 transition-all [color-scheme:dark] text-[13px] uppercase w-[125px]"
                         />
                         <span className="text-[#5C8A70] ml-2">]</span>
                       </div>
@@ -349,7 +349,7 @@ function Dashboard() {
                           type="date"
                           value={project.deadline ? project.deadline.split('T')[0] : ""}
                           onChange={(e) => updateProjectDate(project._id, 'deadline', e.target.value)}
-                          className="bg-transparent text-[#8BA596] outline-none hover:text-[#69D999] focus:text-[#69D999] cursor-pointer [color-scheme:dark] text-[12px] uppercase w-[125px]"
+                          className="bg-transparent text-[#8BA596] outline-none hover:bg-[#101D17] hover:text-[#69D999] focus:text-[#69D999] cursor-pointer ring-1 ring-transparent hover:ring-[#193A27] rounded px-1 transition-all [color-scheme:dark] text-[13px] uppercase w-[125px]"
                         />
                         <span className="text-[#5C8A70] ml-2">]</span>
                       </div>

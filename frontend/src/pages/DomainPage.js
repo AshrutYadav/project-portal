@@ -74,7 +74,7 @@ function DomainPage() {
 
           <div className="relative z-10 flex-1 overflow-y-auto custom-scrollbar pr-2 min-h-0">
             {/* TABLE HEADER */}
-            <div className="hidden md:grid grid-cols-4 text-[#629778] text-[13px] border-b border-[#212A31] pb-4 mb-4 tracking-widest whitespace-nowrap">
+            <div className="hidden md:grid grid-cols-4 text-[#629778] text-sm font-bold border-b border-[#212A31] pb-4 mb-4 tracking-widest whitespace-nowrap bg-[#0A0F13] p-3 rounded-t-md">
               <div className="pl-4">| &lt;PROJECT_NAME&gt;</div>
               <div className="pl-4">| &lt;START_DATE&gt;</div>
               <div className="pl-4">| &lt;DEADLINE&gt;</div>
@@ -92,7 +92,7 @@ function DomainPage() {
                   <div
                     key={project._id}
                     onClick={() => navigate(`/project/${project._id}`)}
-                    className="grid grid-cols-1 md:grid-cols-4 items-center py-4 md:py-3.5 gap-y-3 md:gap-y-0 text-[14px] text-[#8BA596] hover:bg-[#1A2228] transition-colors cursor-pointer rounded-sm border-b md:border border-[#1A2228] md:border-transparent hover:border-[#212A31] group"
+                    className={`grid grid-cols-1 md:grid-cols-4 items-center py-4 md:py-4 gap-y-3 md:gap-y-0 text-[15px] text-[#8BA596] hover:bg-[#1A2228] transition-colors cursor-pointer rounded-md border-b md:border border-[#1A2228] md:border-transparent hover:border-[#212A31] group ${index % 2 === 0 ? 'bg-[#0E1318]' : 'bg-[#11161B]'}`}
                   >
                     <div className="flex items-center space-x-3 pl-2 truncate pr-4">
                       <span className="text-[#69D999] font-bold w-3 shrink-0">

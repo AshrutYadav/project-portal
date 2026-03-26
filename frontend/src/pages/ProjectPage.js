@@ -361,7 +361,7 @@ function ProjectPage() {
               ${isChatOpen ? "h-[50%] lg:h-auto lg:w-[55%]" : "h-full w-full"}`}
           >
             {/* TABLE HEADER (Unified) */}
-            <div className="md:flex hidden w-full border-b border-[#212A31] text-[#629778] tracking-[0.2em] font-bold text-[13px] bg-[#0A0F13] shrink-0">
+            <div className="md:flex hidden w-full border-b border-[#212A31] text-[#629778] tracking-[0.2em] font-bold text-sm bg-[#0A0F13] shrink-0">
               <div className="w-1/3 p-4 pl-6 border-r border-[#212A31] flex items-center">
                 <span>[ TEAM_MEMBERS ]</span>
               </div>
@@ -381,7 +381,7 @@ function ProjectPage() {
                 const canEditOnlyName = !canEdit && isSelf;
 
                 return (
-                  <div key={index} className="flex flex-col md:flex-row w-full border-b border-[#1A2228] hover:bg-[#151B20] transition-colors group relative">
+                  <div key={index} className={`flex flex-col md:flex-row w-full border-b border-[#1A2228] hover:bg-[#1A2228] transition-colors group relative ${index % 2 === 0 ? 'bg-[#0E1318]' : 'bg-[#11161B]'}`}>
 
                     {/* Member Column */}
                     <div className="w-full md:w-1/3 p-4 md:pl-6 border-b md:border-b-0 md:border-r border-[#212A31] flex justify-between items-start md:items-center bg-[#0A0F13] md:bg-transparent">
@@ -619,7 +619,7 @@ function ProjectPage() {
                             setNewMember({ ...newMember, collegeId: e.target.value.toUpperCase() });
                             setMemberError("");
                           }}
-                          className="text-[12px] bg-transparent border-b border-[#304137] focus:border-[#69D999] outline-none text-[#69D999] placeholder-[#2A3F33] w-1/2 pb-1 uppercase"
+                          className="text-[13px] bg-transparent border-b border-[#304137] focus:border-[#69D999] hover:border-[#69D999]/50 transition-colors outline-none text-[#69D999] placeholder-[#2A3F33] w-1/2 pb-1 uppercase"
                         />
                         <input
                           type="text"
@@ -633,7 +633,7 @@ function ProjectPage() {
                             if (e.key === "Enter") handleAddMember();
                             if (e.key === "Escape") { setIsAddingMember(false); setMemberError(""); }
                           }}
-                          className="text-[12px] bg-transparent border-b border-[#304137] focus:border-[#69D999] outline-none text-[#69D999] placeholder-[#2A3F33] w-full sm:w-1/2 pb-1"
+                          className="text-[13px] bg-transparent border-b border-[#304137] focus:border-[#69D999] hover:border-[#69D999]/50 transition-colors outline-none text-[#69D999] placeholder-[#2A3F33] w-full sm:w-1/2 pb-1"
                         />
                       </div>
 

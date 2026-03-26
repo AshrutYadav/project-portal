@@ -38,7 +38,7 @@ const LoginPage = () => {
 
                 <form onSubmit={handleLogin} className="space-y-6">
                     <div>
-                        <label className="block text-[#629778] text-xs font-bold mb-2 tracking-widest uppercase">
+                        <label className="block text-[#629778] text-sm font-bold mb-2 tracking-widest uppercase">
                             Operative ID (College ID)
                         </label>
                         <input
@@ -46,13 +46,13 @@ const LoginPage = () => {
                             value={collegeId}
                             onChange={(e) => setCollegeId(e.target.value.toUpperCase())}
                             className="w-full bg-[#111814] border border-[#212A31] focus:border-[#69D999] text-[#8BA596] px-4 py-3 rounded-sm outline-none transition-colors duration-200 uppercase"
-                            placeholder="e.g. BT25CSH022"
+                            placeholder="e.g. BT25CSE001"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-[#629778] text-xs font-bold mb-2 tracking-widest uppercase">
+                        <label className="block text-[#629778] text-sm font-bold mb-2 tracking-widest uppercase">
                             Security Key (Password)
                         </label>
                         <input
@@ -60,7 +60,7 @@ const LoginPage = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full bg-[#111814] border border-[#212A31] focus:border-[#69D999] text-[#8BA596] px-4 py-3 rounded-sm outline-none transition-colors duration-200"
-                            placeholder="••••••••"
+                            placeholder="12345678"
                             required
                         />
                     </div>
